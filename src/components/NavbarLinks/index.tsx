@@ -1,14 +1,9 @@
-const navItems = [
-  { href: "#home", label: "Início" },
-  { href: "#about", label: "Sobre Mim" },
-  { href: "#projects", label: "Projetos" },
-  { href: "#contact", label: "Contato" },
-]
+import { navLinks } from "@/data/navlinks"
 
 export default function NavbarLinks() {
   return (
     <div className="hidden md:flex items-center space-x-6">
-      {navItems.map((item) => (
+      {navLinks.map((item) => (
         <a
           key={item.href}
           href={item.href}

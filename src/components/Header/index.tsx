@@ -1,11 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import NavbarLinks from "../NavbarLinks";
+import MobileMenu from "../MobileMenu"
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(true)
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768
+      setIsMobile(mobile)
+
+      if (!mobile && isOpen) {
+        setIsOpen(false) // fecha o menu se a tela for grande
+      }
+    }
+
+    // roda logo no carregamento
+    handleResize()
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [isOpen])
 
   return (
     <header className="fixed top-0 left-0 w-full shadow-md bg-opacity-80 backdrop-blur-md bg-gray-900 z-50 font-sans">
@@ -15,31 +35,31 @@ export default function Header() {
             Meu Portfólio
           </a>
           
+          <div className="hidden md:block">
             <NavbarLinks />
+          </div>
           
           <button 
             onClick={() => setIsOpen(!isOpen)} 
             className="md:hidden text-white"
+            aria-label="Toggle menu"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+                key={isOpen ? "close" : "menu"}
+                initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
+                transition={{ duration: 0.1 }}
+            >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.div>
+          </AnimatePresence>
           </button>
         </nav>
       </div>
       
-      {/* Mobile Menu */}
-      <div className={`md:hidden fixed top-0 right-0 w-3/4 h-full bg-gray-900 z-50 transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="flex justify-end p-4">
-          <button onClick={() => setIsOpen(false)}>
-            <X size={24} className="text-white" />
-          </button>
-        </div>
-        <div className="flex flex-col space-y-4 p-8">
-          <a href="#home" className="text-white text-lg" onClick={() => setIsOpen(false)}>Início</a>
-          <a href="#about" className="text-white text-lg" onClick={() => setIsOpen(false)}>Sobre Mim</a>
-          <a href="#projects" className="text-white text-lg" onClick={() => setIsOpen(false)}>Projetos</a>
-          <a href="#contact" className="text-white text-lg" onClick={() => setIsOpen(false)}>Contato</a>
-        </div>
-      </div>
+      {isMobile  && <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />}
     </header>
   );
 }

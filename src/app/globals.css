@@ -17,11 +17,28 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, var(--color-orange), var(--color-yellow));
+  background: linear-gradient(90deg, var(--color-orange), var(--color-yellow), var(--color-orange));
+  background-size: 200% 100%; /* o gradiente tem o dobro da largura pra animar */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  transition: background-position 0.5s ease;
 }
+
+.gradient-text:hover {
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+
 
 .nav-link {
     position: relative;
