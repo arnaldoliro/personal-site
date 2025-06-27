@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${spaceGrotesk.variable}`}>
-      <body className="bg-bg text-text">
+      <body className="bg-bg font-sans">
         {/* <Background /> */}
         <Header />
         <main className="relative z-10">

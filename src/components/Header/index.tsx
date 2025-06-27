@@ -2,24 +2,20 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import NavbarLinks from "../NavbarLinks";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md z-50">
-      <div className="container mx-auto px-4 py-4">
+    <header className="fixed top-0 left-0 w-full shadow-md bg-opacity-80 backdrop-blur-md bg-gray-900 z-50 font-sans">
+      <div className="mx-auto px-4 py-4">
         <nav className="flex justify-between items-center">
-          <a href="#" className="text-2xl font-bold gradient-text">
+          <a href="#" className="text-4xl font-bold gradient-text">
             Meu Portfólio
           </a>
           
-          <div className="hidden md:flex items-center space-x-6">
-            <a href="#home" className="nav-link">Início</a>
-            <a href="#about" className="nav-link">Sobre Mim</a>
-            <a href="#projects" className="nav-link">Projetos</a>
-            <a href="#contact" className="nav-link">Contato</a>
-          </div>
+            <NavbarLinks />
           
           <button 
             onClick={() => setIsOpen(!isOpen)} 
