@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Hero from "@/components/HeroSection";
 // import Background from "@/components/Background";
 // import Footer from "@/components/Footer";
 
@@ -32,7 +33,7 @@ export default function RootLayout({
       <body className="bg-bg font-sans">
         {/* <Background /> */}
         <Header />
-        <main className="relative z-10">
+        <main className="relative z-10 pt-16">
           {children}
         </main>
         {/* <Footer /> */}

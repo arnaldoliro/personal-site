@@ -16,11 +16,10 @@ export default function Header() {
       setIsMobile(mobile)
 
       if (!mobile && isOpen) {
-        setIsOpen(false) // fecha o menu se a tela for grande
+        setIsOpen(false)
       }
     }
 
-    // roda logo no carregamento
     handleResize()
 
     window.addEventListener("resize", handleResize)
