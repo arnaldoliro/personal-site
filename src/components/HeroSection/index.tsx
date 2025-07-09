@@ -1,10 +1,11 @@
 import Background from "../Background";
+import ProfileIcon from "../ProfileIcon";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center relative pt-20"
+      className="min-h-screen flex items-center relative"
     >
       <Background />
 
@@ -22,39 +23,7 @@ export default function Hero() {
           </div>
 
           {/* SVG e foto */}
-          <div className="md:w-1/2 flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
-              <svg
-                className="w-full h-full"
-                viewBox="0 0 200 200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill="#f97316"
-                  d="M40.8,-68.3C51.8,-61.6,59.2,-48.8,65.7,-35.8C72.3,-22.8,78,-9.6,76.4,2.3C74.8,14.2,65.9,24.9,57.3,35.5C48.8,46.1,40.5,56.7,29.7,62.4C18.8,68.2,5.4,69.1,-7.4,67.7C-20.2,66.3,-32.5,62.5,-42.3,55.3C-52.1,48.1,-59.5,37.4,-64.4,25.7C-69.3,13.9,-71.8,1,-69.9,-10.8C-68,-22.7,-61.8,-33.5,-53.2,-42.3C-44.6,-51.1,-33.6,-57.9,-22,-62.3C-10.3,-66.7,1.9,-68.8,14.4,-69.1C26.9,-69.5,39.8,-68.1,40.8,-68.3Z"
-                  transform="translate(100 100)"
-                />
-              </svg>
-
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-56 h-56 md:w-72 md:h-72 rounded-full bg-gray-800 overflow-hidden border-4 border-gray-700">
-                  {/* Placeholder para foto de perfil */}
-                  <svg
-                    className="w-full h-full text-gray-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProfileIcon />
         </div>
       </div>
 

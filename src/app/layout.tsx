@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className="bg-bg font-sans">
         {/* <Background /> */}
         <Header />
-        <main className="relative z-10 pt-16">
+        <main className="relative z-10">
           {children}
         </main>
         {/* <Footer /> */}
