@@ -7,8 +7,19 @@ import MobileMenu from "../MobileMenu"
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Header() {
+  const [showHeader, setShowHeader] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setShowHeader(currentScrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -25,13 +36,13 @@ export default function Header() {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [isOpen])
-
+ 
   return (
-    <header className="fixed top-0 left-0 w-full shadow-md bg-opacity-80 backdrop-blur-md bg-gray-900 z-50 font-sans">
+    <header className={`fixed top-0 left-0 w-full shadow-md bg-opacity-80 backdrop-blur-md bg-gray-900 z-50 font-sans ${showHeader ? "translate-y-0" : "-translate-y-full"} transition-transform duration-300`}>
       <div className="mx-auto px-4 py-4">
         <nav className="flex justify-between items-center">
           <a href="#" className="text-4xl font-bold gradient-text">
-            Meu Portfólio
+            Arnaldo.dev
           </a>
           
           <div className="hidden md:block">
