@@ -8,6 +8,10 @@
   --color-text: #f5f5f5;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .gradient-text {
   background: linear-gradient(90deg, var(--color-orange), var(--color-yellow), var(--color-orange));
   background-size: 200% 100%;

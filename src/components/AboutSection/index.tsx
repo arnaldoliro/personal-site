@@ -3,30 +3,46 @@
 import cards from "@/data/CardItems"
 import Card from "../CardSkills"
 import Timeline from "../Timeline"
+import { motion } from "framer-motion"
 
 export default function AboutSection() {
    return(  
-    <section id="about" className="py-20 bg-gray-900 text-white">
+    <motion.section 
+        id="about" 
+        className="py-20 bg-gray-900 text-white"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: false, amount: 0.3 }}
+    >
       <div className="container mx-auto px-4">
-        <h2 className="relative group text-4xl w-fit mx-auto text-center font-bold pb-2 mb-6 cursor-default">
+        <h2 className="relative group text-4xl w-fit mx-auto text-center font-bold pb-2 mb-20 cursor-default">
             Sobre mim
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-orange-500 to-yellow-400 group-hover:w-full transition-all duration-300 ease-out"></span>
         </h2>
-        <div className="flex gap-6 mx-auto">
-            <div className="">
-                <h1 className="text-xl font-bold mb-4">Minha Jornada</h1>
+        <div className="flex mx-auto">
+            <div className="ml-6">
+                <h1 className="text-2xl text-center font-bold mb-10">Minha Jornada</h1>
                 <Timeline />
             </div>
             <div className="">
-                <h1 className="text-xl font-bold mb-4">Minhas Habilidades</h1>
+                <h1 className="text-2xl text-center font-bold mb-10">Minhas Habilidades</h1>
                 <div className="grid grid-cols-2 gap-6">
                     {cards.map((card, index) => (
-                        <Card key={index} title={card.title} skills={card.skills} />
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: false, amount: 0.5 }}
+                        >
+                            <Card title={card.title} skills={card.skills} />
+                        </motion.div>
                     ))}
                 </div>
             </div>
         </div>
       </div>
-    </section>
+    </motion.section>
    )
 }
