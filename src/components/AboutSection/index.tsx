@@ -1,3 +1,6 @@
+'use client'
+
+import cards from "@/data/CardItems"
 import Card from "../CardSkills"
 import Timeline from "../Timeline"
 
@@ -16,10 +19,10 @@ export default function AboutSection() {
             </div>
             <div className="">
                 <h1 className="text-xl font-bold mb-4">Minhas Habilidades</h1>
-                <div className="flex gap-6">
-                    {/* Usar um map para o card de habilidades */}
-                    <Card />
-                    <Card />
+                <div className="grid grid-cols-2 gap-6">
+                    {cards.map((card, index) => (
+                        <Card key={index} title={card.title} skills={card.skills} />
+                    ))}
                 </div>
             </div>
         </div>
