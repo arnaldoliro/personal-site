@@ -1,3 +1,4 @@
+import ArrowDown from "../ArrowDown";
 import Background from "../Background";
 import ProfileIcon from "../ProfileIcon";
 
@@ -28,11 +29,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll down */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-        <a href="#about" className="text-gray-400 hover:text-white">
-          <i className="fas fa-chevron-down text-2xl"></i>
-        </a>
-      </div>
+        <ArrowDown />
     </section>
   );
 }
