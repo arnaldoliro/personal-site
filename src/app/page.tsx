@@ -1,7 +1,10 @@
-import Image from "next/image";
-
+import Hero from "@/components/HeroSection";
+import PortfolioSection from "@/components/PortfloioSection";
 export default function Home() {
   return (
-    <div></div>
+    <main className="relative">
+      <Hero />
+      <PortfolioSection/>
+    </main>
   );
 }

@@ -8,17 +8,9 @@
   --color-text: #f5f5f5;
 }
 
-* {
-
-}
-
-body {
-
-}
-
 .gradient-text {
   background: linear-gradient(90deg, var(--color-orange), var(--color-yellow), var(--color-orange));
-  background-size: 200% 100%; /* o gradiente tem o dobro da largura pra animar */
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -28,6 +20,33 @@ body {
 .gradient-text:hover {
   animation: shine 3s linear infinite;
 }
+
+@layer utilities {
+  .bg-size-200 {
+    background-size: 200% 200%;
+  }
+
+  .animate-gradient {
+    animation: gradientBG 6s ease infinite;
+  }
+
+  .bg-custom-gradient {
+    background: linear-gradient(120deg, var(--color-orange), var(--color-yellow));
+  }
+
+}
+
+@keyframes gradientBG {
+  0% {
+      background-position: 0% 50%;
+     }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
 @keyframes shine {
   0% {
