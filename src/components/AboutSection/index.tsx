@@ -17,7 +17,7 @@ export default function AboutSection() {
     >
       <div className="container mx-auto px-4">
         <h2 className="relative group text-4xl w-fit mx-auto text-center font-bold pb-2 mb-20 cursor-default">
-            Sobre mim
+            Sobre <span className="gradient-text">mim</span>
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-orange-500 to-yellow-400 group-hover:w-full transition-all duration-300 ease-out"></span>
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mx-auto">

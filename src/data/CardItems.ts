@@ -13,7 +13,7 @@ const cards = [
   },
   {
     title: "Outras Habilidades",
-    skills: ["Git", "Scrum", "SEO", "Microsserviços", "Jest", "Linux", "Kali Linux"]
+    skills: ["Git", "Scrum", "SEO", "Microsserviços", "Jest", "Linux", "Kali Linux", 'Canva', 'Figma', 'Excel']
   }
 ];
 
