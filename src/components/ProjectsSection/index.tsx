@@ -1,6 +1,7 @@
 'use client'
 
 import ProjectCard from "../ProjectCard";
+import SectionDescription from "../SectionDescription";
 import SectionTitle from "../SectionTitle";
 import { motion } from "framer-motion";
 
@@ -15,7 +16,11 @@ export default function ProjectSection() {
      viewport={{ once: true, amount: 0.3 }} 
     >
       <div className="container mx-auto px-4">
-        <SectionTitle highlight="Projetos">Meus</SectionTitle>
+        <div className="mb-20">
+            <SectionTitle highlight="Projetos">Meus</SectionTitle>
+            <SectionDescription> Conheça alguns dos projetos que desenvolvi ao longo da minha carreira. <br />
+      Cada um representa um desafio único e uma oportunidade de aprendizado.</SectionDescription>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProjectCard />
             <ProjectCard />
