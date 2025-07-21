@@ -9,7 +9,7 @@ export default function AboutSection() {
    return(  
     <motion.section 
         id="about" 
-        className="py-20 bg-gray-900 text-white"
+        className="py-20 bg-gradient-to-b from-[#171717] to-gray-900 text-white"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
