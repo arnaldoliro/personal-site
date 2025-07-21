@@ -1,10 +1,11 @@
 import Hero from "@/components/HeroSection";
-import PortfolioSection from "@/components/PortfloioSection";
+import AboutSection from "@/components/AboutSection";
+
 export default function Home() {
   return (
     <main className="relative">
       <Hero />
-      <PortfolioSection/>
+      <AboutSection />
     </main>
   );
 }
