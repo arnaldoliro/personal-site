@@ -5,6 +5,7 @@
 import ProjectCardProps from "@/types/ProjectCardProps";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import SkillTag from "../SkillTag";
 
 export default function ProjectCard({
   title,
@@ -15,13 +16,13 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <motion.div
-      className="bg-gray-800 rounded-2xl shadow-lg p-2 hover:shadow-xl transition-shadow duration-300"
+      className="bg-[#2b2b2b] pb-20 rounded-2xl shadow-lg hover:shadow-xl hover:shadow-[#f9741631] transition-shadow duration-300"
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
       viewport={{ once: false, amount: 0.3 }}
     >
-      <div className="relative group mb-4 rounded-2xl overflow-hidden">
+      <div className="relative group mb-4 rounded-t-2xl overflow-hidden">
         {image ? (
           <Image
             src={image}
@@ -31,7 +32,7 @@ export default function ProjectCard({
             height={300}
           />
         ) : (
-          <div className="w-full h-48 flex items-center justify-center bg-gray-700 text-gray-400">
+          <div className="w-full h-48 flex items-center justify-center bg-gray-800 text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-16 w-16"
@@ -74,11 +75,11 @@ export default function ProjectCard({
       <div className="px-4 pb-4">
         <h3 className="text-2xl text-white font-semibold mb-4">{title}</h3>
         <p className="text-gray-400 mb-4">{description}</p>
-        <ul className="list-disc list-inside text-gray-300">
-          {skills.map((skill, index) => (
-            <li key={index}>{skill}</li>
-          ))}
-        </ul>
+        <div className="flex flex-wrap gap-2 items-center">
+            {skills.map((skill, index) => (
+                <SkillTag key={index} skill={skill} />
+            ))}
+        </div>
       </div>
     </motion.div>
   );
