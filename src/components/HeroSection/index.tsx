@@ -19,7 +19,7 @@ export default function Hero() {
             <p className="text-xl md:text-2xl mb-8 text-gray-300">Desenvolvedor Full Stack & Designer de Experiências Digitais</p>
             <div className="flex flex-wrap gap-4">
               <a href="#projects" className="bg-custom-gradient rounded-lg p-3 shadow-lg hover:shadow-[#f97316] transition-all duration-500">Ver Projetos</a>
-              <a href="#contact"className="py-3 px-10 text-[#f97316] hover:text-[#000] bg-[#171717] hover:bg-[#f97316] border border-[#f97316] rounded-lg transition-all duration-500">Entre em Contato</a>
+              <a href="#contact"className="py-3 px-10 text-[#f97316] hover:text-[#000] bg-[#171717c0] hover:bg-[#f97316] border-2 border-[#f97316] rounded-lg transition-all duration-500">Entre em Contato</a>
             </div>
           </div>
 
