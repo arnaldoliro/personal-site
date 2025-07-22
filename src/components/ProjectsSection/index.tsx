@@ -5,6 +5,7 @@ import ProjectCard from "../ProjectCard";
 import SectionDescription from "../SectionDescription";
 import SectionTitle from "../SectionTitle";
 import { motion } from "framer-motion";
+import { Github } from "lucide-react";
 
 export default function ProjectSection() {
   return (
@@ -20,7 +21,8 @@ export default function ProjectSection() {
         <div className="mb-20">
             <SectionTitle highlight="Projetos">Meus</SectionTitle>
             <SectionDescription> Conheça alguns dos projetos que desenvolvi ao longo da minha carreira. <br />
-      Cada um representa um desafio único e uma oportunidade de aprendizado.</SectionDescription>
+                                 Cada um representa um desafio único e uma oportunidade de aprendizado.
+            </SectionDescription>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ProjectsInfo.map((project, index) => (
@@ -34,6 +36,14 @@ export default function ProjectSection() {
             />
           ))}
         </div>
+        <a
+          className="flex bg-custom-gradient text-[#171717] font-semibold items-center justify-center gap-2 mt-10 mx-auto w-fit py-3 px-6 rounded-lg shadow-lg hover:shadow-[#f974165b] transition-all duration-500"
+          href="https://github.com/arnaldoliro?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Github className="w-5 h-5" /> Ver mais no GitHub
+        </a>
       </div>
     </motion.section>
   );
