@@ -1,5 +1,6 @@
 'use client'
 
+import ProjectsInfo from "@/data/ProjectsItems";
 import ProjectCard from "../ProjectCard";
 import SectionDescription from "../SectionDescription";
 import SectionTitle from "../SectionTitle";
@@ -22,10 +23,16 @@ export default function ProjectSection() {
       Cada um representa um desafio único e uma oportunidade de aprendizado.</SectionDescription>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
+          {ProjectsInfo.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              image={project.image}
+              skills={project.skills}
+              githubLink={project.githubLink}
+            />
+          ))}
         </div>
       </div>
     </motion.section>
