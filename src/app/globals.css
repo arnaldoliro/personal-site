@@ -31,6 +31,24 @@ html, body {
   animation: shine 3s linear infinite;
 }
 
+.textarea-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.textarea-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.textarea-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.textarea-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
 @layer utilities {
   .bg-size-200 {
     background-size: 200% 200%;
