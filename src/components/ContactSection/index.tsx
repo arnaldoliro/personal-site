@@ -71,7 +71,7 @@ export default function ContactSection() {
              transition={{ duration: 0.7 }}
              viewport={{ once: false, amount: 0.3 }}
             >
-              <h1 className="text-xl font-semibold mb-8">Informações de Contato</h1>
+              <h1 className="text-xl font-semibold font-grotesk mb-8">Informações de Contato</h1>
               <div className="flex items-center gap-5 mb-5">
                 <span className="bg-gray-800 rounded-full p-4"><Mail size={20}/></span>
                 <div>
