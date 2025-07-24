@@ -12,6 +12,20 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
 .gradient-text {
   background: linear-gradient(90deg, var(--color-orange), var(--color-yellow), var(--color-orange));
   background-size: 200% 100%;
@@ -23,6 +37,24 @@ html {
 
 .gradient-text:hover {
   animation: shine 3s linear infinite;
+}
+
+.textarea-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.textarea-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.textarea-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.textarea-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 
 @layer utilities {

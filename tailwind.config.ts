@@ -1,12 +1,20 @@
+// tailwind.config.ts
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  content: [
+    './app/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+  ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
-        grotesk: ['var(--font-space-grotesk)'],
+        sans: ['var(--font-poppins)', 'sans-serif'],
+        grotesk: ['var(--font-space-grotesk)', 'sans-serif'],
       },
     },
   },
+  plugins: [],
 }
+
+export default config

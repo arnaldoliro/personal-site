@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import Hero from "@/components/HeroSection";
 // import Background from "@/components/Background";
 // import Footer from "@/components/Footer";
 
