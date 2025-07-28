@@ -5,11 +5,11 @@ export default function Footer() {
         <p className="text-sm text-[#eee] font-semibold">
           &copy; {new Date().getFullYear()} Arnaldo Liro. Todos os direitos reservados.
         </p>
-        <div className="flex gap-4 text-[#eee] text-sm">
-            <a href="#home">Inicio</a>
-            <a href="#about">Sobre mim</a>
-            <a href="#projects">Projetos</a>
-            <a href="#contact">Contato</a>
+        <div className="flex gap-4 text-sm">
+            <a className="bg-[#eee] hover:bg-gradient-to-r hover:from-orange-500 hover:to-yellow-400 bg-clip-text text-transparent transition-all duration-500" href="#home">Inicio</a>
+            <a className="bg-[#eee] hover:bg-gradient-to-r hover:from-orange-500 hover:to-yellow-400 bg-clip-text text-transparent transition-all duration-500" href="#about">Sobre mim</a>
+            <a className="bg-[#eee] hover:bg-gradient-to-r hover:from-orange-500 hover:to-yellow-400 bg-clip-text text-transparent transition-all duration-500" href="#projects">Projetos</a>
+            <a className="bg-[#eee] hover:bg-gradient-to-r hover:from-orange-500 hover:to-yellow-400 bg-clip-text text-transparent transition-all duration-500" href="#contact">Contato</a>
         </div>
       </div>
     </footer>
