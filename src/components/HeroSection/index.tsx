@@ -6,11 +6,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center relative"
+      className="relative min-h-screen flex items-center overflow-hidden w-full"
     >
       <Background />
-
-      <div className="container mx-auto px-4 z-10">
+      <div className="relative container mx-auto px-4 z-10">
         <div className="flex flex-col md:flex-row items-center">
           {/* Texto e botões */}
           <div className="md:w-1/2 mb-10 md:mb-0 text-color-text">
