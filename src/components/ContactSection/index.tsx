@@ -4,8 +4,30 @@ import { motion } from "framer-motion";
 import SectionDescription from "../SectionDescription";
 import SectionTitle from "../SectionTitle";
 import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import { useState } from "react";
+import { sendContactMessage } from "@/services/api/contact";
 
 export default function ContactSection() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("Enviando...");
+
+    try {
+      await sendContactMessage(form);
+      setStatus("Mensagem enviada com sucesso!");
+      setForm({ name: "", email: "", message: "" }); // limpa campos
+    } catch (error) {
+      setStatus("Erro ao enviar a mensagem.");
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-[#171717] to-gray-900 text-white">
       <div className="container mx-auto px-4">
@@ -18,6 +40,7 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10 items-start">
           <motion.form 
+           onSubmit={handleSubmit}
            className="w-full h-full max-w-lg bg-[#1e1e1e] p-6 rounded-2xl shadow-lg mx-auto md:mx-0"
            initial={{ opacity: 0, x: -100 }}
            whileInView={{ opacity: 1, x: 0 }}
@@ -30,8 +53,11 @@ export default function ContactSection() {
                 <label className="text-sm font-semibold" htmlFor="name">Nome</label>
                 <input
                   type="text"
-                  id="name"
-                  placeholder="Seu Nome"
+                  name="name"
+                  placeholder="Seu nome"
+                  value={form.name}
+                  onChange={handleChange}
+                  required
                   className="p-3 w-full rounded-lg bg-[#1e1e1e] border border-[#333] focus:outline-none focus:border-[1px] focus:border-[#f97416] focus:shadow-sm shadow-[#f97416] transition-all duration-300"
                 />
               </div>
@@ -39,8 +65,11 @@ export default function ContactSection() {
                 <label className="text-sm font-semibold" htmlFor="email">Email</label>
                 <input
                   type="email"
-                  id="email"
-                  placeholder="Seu Email"
+                  name="email"
+                  placeholder="Seu e-mail"
+                  value={form.email}
+                  onChange={handleChange}
+                  required
                   className="p-3 rounded-lg bg-[#1e1e1e] border border-[#333] focus:outline-none focus:border-[1px] focus:border-[#f97416] focus:shadow-sm shadow-[#f97416] transition-all duration-300"
                 />
               </div>
@@ -49,8 +78,11 @@ export default function ContactSection() {
             <div className="mt-4 flex flex-col gap-1">
               <label className="text-sm font-semibold" htmlFor="message">Mensagem</label>
               <textarea
-                id="message"
-                placeholder="Sua Mensagem"
+                name="message"
+                placeholder="Sua mensagem"
+                value={form.message}
+                onChange={handleChange}
+                required
                 className="textarea-scrollbar resize-none p-3 rounded-lg bg-[#1e1e1e] border border-[#333] focus:outline-none focus:border-[1px] focus:border-[#f97416] focus:shadow-sm shadow-[#f97416] transition-all duration-300"
                 rows={5}
               />
