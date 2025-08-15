@@ -15,7 +15,7 @@ export default function Hero() {
           <div className="md:w-1/2 mb-10 md:mb-0 text-color-text">
             <h1 className="text-4xl md:text-6xl font-bold text-[#fff]">Olá, eu sou</h1>
             <span className="gradient-text text-4xl md:text-6xl font-bold mb-4">Arnaldo Liro</span>
-            <p className="text-xl md:text-2xl mb-8 text-gray-300">Desenvolvedor Full Stack & Designer de Experiências Digitais</p>
+            <p className="text-xl md:text-2xl mb-8 text-gray-300">Desenvolvedor Full Stack & Freelancer</p>
             <div className="flex flex-wrap gap-4">
               <a href="#projects" className="bg-custom-gradient rounded-lg p-3 shadow-lg hover:shadow-[#f97316] transition-all duration-500">Ver Projetos</a>
               <a href="#contact"className="py-3 px-10 text-[#f97316] hover:text-[#000] bg-[#171717c0] hover:bg-[#f97316] border-2 border-[#f97316] rounded-lg transition-all duration-500">Entre em Contato</a>

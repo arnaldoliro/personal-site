@@ -9,7 +9,7 @@ const cards = [
   },
   {
     title: "DevOps",
-    skills: ["Docker", "Kubernetes", "CI/CD", "AWS", "Google Cloud"]
+    skills: ["Docker", "CI/CD", "AWS", "Google Cloud"]
   },
   {
     title: "Outras Habilidades",

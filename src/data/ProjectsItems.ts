@@ -1,31 +1,31 @@
 const ProjectsInfo = [
     {
-        title: "Meu Projeto Incrível",
-        description: "Este é um projeto incrível que eu desenvolvi usando as mais recentes tecnologias.",
-        // image: "/images/project-image.jpg",
-        skills: ["HTML", "CSS", "JavaScript", "React"],
-        githubLink: "https://github.com/usuario/meu-projeto-incrivel"
+        title: "Sistema de Arquivos",
+        description: "Aplicação web para upload, gerenciamento e visualização de arquivos, com autenticação e filtros avançados.",
+        // image: "/images/sistema-arquivos.jpg",
+        skills: ["Next.js", "TypeScript", "React"],
+        githubLink: "https://github.com/arnaldoliro/sistema-de-arquivos-adminstrador"
+    },
+     {
+        title: "Backend - Arquitetura de Microserviços",
+        description: "API backend desenvolvida em NestJS usando arquitetura de microserviços, banco de dados, mensageria e integração com frontend.",
+        image: "/images/backend-microservice.jpg",
+        skills: ["NestJS", "TypeScript", "Docker", "TypeORM"],
+        githubLink: "https://github.com/arnaldoliro/microservice-project"
     },
     {
-        title: "Outro Projeto Fascinante",
-        description: "Um projeto fascinante que demonstra minhas habilidades em desenvolvimento web.",
-        // image: "/images/another-project-image.jpg",
-        skills: ["Node.js", "Express", "MongoDB"],
-        githubLink: "https://github.com/usuario/outro-projeto-fascinante"
+        title: "Automatização de Envio de Formulário",
+        description: "Script automatizado para coletar, processar e enviar dados de formulários para sistemas externos de forma eficiente.",
+        image: "/images/automatizacao-formulario.jpg",
+        skills: ["Python", "Excel"],
+        githubLink: "https://github.com/arnaldoliro/automatic-form-submission"
     },
     {
-        title: "Aplicativo de Gerenciamento de Tarefas",
-        description: "Um aplicativo simples para gerenciar suas tarefas diárias.",
-        // image: "/images/task-manager-image.jpg",
-        skills: ["Vue.js", "Vuetify", "Firebase"],
-        githubLink: "https://github.com/usuario/aplicativo-gerenciamento-tarefas"
-    },
-    {
-        title: "Portfolio Pessoal",
-        description: "Meu portfolio pessoal onde você pode ver todos os meus projetos.",
-        // image: "/images/portfolio-image.jpg",
+        title: "Portfólio Pessoal",
+        description: "Meu site pessoal desenvolvido com Next.js, Tailwind CSS e animações, apresentando meus projetos e habilidades.",
+        image: "/images/portfolio-pessoal.jpg",
         skills: ["Next.js", "Tailwind CSS", "TypeScript"],
-        githubLink: "https://github.com/usuario/portfolio-pessoal"
-    }
+        githubLink: "https://github.com/arnaldoliro/personal-site"
+    },
 ]
 export default ProjectsInfo;
