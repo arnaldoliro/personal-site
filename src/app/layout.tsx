@@ -3,8 +3,6 @@ import { Poppins, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-// import Background from "@/components/Background";
-// import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],

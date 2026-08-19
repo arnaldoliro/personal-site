@@ -10,6 +10,8 @@ export async function sendContactMessage(data: {
   });
 
   if (!res.ok) {
+    if (res.status === 429) throw new Error("RATE_LIMITED");
+    if (res.status === 400) throw new Error("VALIDATION_ERROR");
     throw new Error("Erro ao enviar mensagem");
   }
 
