@@ -5,7 +5,7 @@ const cards = [
   },
   {
     title: "Desenvolvimento Backend",
-    skills: ["Node.js", "Express", "MongoDB", "PostgreSQL", "GraphQL", "REST APIs", "Python", "NestJS", "Java"]
+    skills: ["Node.js", "Express", "MongoDB", "PostgreSQL", "GraphQL", "REST APIs", "Python", "NestJS", "Java", "SQL Server", "Prisma", "TypeORM", "Redis", "Swagger", "PHP"]
   },
   {
     title: "DevOps",
