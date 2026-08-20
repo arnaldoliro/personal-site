@@ -1,12 +1,5 @@
 const ProjectsInfo = [
     {
-        title: "Sistema de Arquivos",
-        description: "Aplicação web para upload, gerenciamento e visualização de arquivos, com autenticação e filtros avançados.",
-        // image: "/images/sistema-arquivos.jpg",
-        skills: ["Next.js", "TypeScript", "React"],
-        githubLink: "https://github.com/arnaldoliro/sistema-de-arquivos-adminstrador"
-    },
-     {
         title: "Backend - Arquitetura de Microserviços",
         description: "API backend desenvolvida em NestJS usando arquitetura de microserviços, banco de dados, mensageria e integração com frontend.",
         image: "/images/backend-microservice.jpg",

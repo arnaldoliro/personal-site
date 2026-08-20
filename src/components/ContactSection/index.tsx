@@ -72,7 +72,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10 items-start">
           <motion.form 
            onSubmit={handleSubmit}
-           className="w-full h-full max-w-lg bg-[#1e1e1e] p-6 rounded-2xl shadow-lg mx-auto md:mx-0"
+           className="w-full h-full max-w-lg bg-[#1e1e1e] p-6 rounded-2xl shadow-lg mx-auto"
            initial={{ opacity: 0, x: -100 }}
            whileInView={{ opacity: 1, x: 0 }}
            transition={{ duration: 0.7 }}
@@ -142,7 +142,7 @@ export default function ContactSection() {
               </p>
             )}
           </motion.form>
-          <div className="space-y-11 w-full max-w-md mx-auto md:mx-0">
+          <div className="space-y-11 w-full max-w-md mx-auto">
             <motion.div 
              className="bg-[#1e1e1e] p-6 rounded-2xl shadow-lg"
              initial={{ opacity: 0, x: 100 }}

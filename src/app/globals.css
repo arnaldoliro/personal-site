@@ -93,6 +93,19 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+@keyframes timelineGlow {
+  0%, 100% {
+    box-shadow: 0 0 2px 1px rgba(250, 204, 21, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 4px 1px rgba(250, 204, 21, 0.55);
+  }
+}
+
+.animate-timeline-glow {
+  animation: timelineGlow 2.5s ease-in-out infinite;
+}
+
 
 
 .nav-link {
