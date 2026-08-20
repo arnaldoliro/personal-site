@@ -11,7 +11,7 @@ export default function AboutSection() {
     <section id="about" className="py-20 bg-gradient-to-b from-[#171717] to-gray-900 text-white">
       <div className="container mx-auto px-4">
         <SectionTitle highlight="mim">Sobre</SectionTitle>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto">
             <div className="ml-6">
                 <motion.h1 
                     className="text-2xl text-center font-bold mb-10"
@@ -34,7 +34,7 @@ export default function AboutSection() {
                 >   
                     Minhas Habilidades
                 </motion.h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 mx-auto gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 items-start md:items-stretch md:auto-rows-fr mx-auto gap-6">
                     {cards.map((card, index) => (
                         <motion.div
                             key={index}
