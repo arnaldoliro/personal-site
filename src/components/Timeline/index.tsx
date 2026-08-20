@@ -1,24 +1,35 @@
 'use client'
 import {motion} from "framer-motion"
+import { useEffect, useState } from "react"
 import timeline from "@/data/TimelineItems"
 
 export default function Timeline() {
+    const [isMobile, setIsMobile] = useState(false)
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 767px)")
+        setIsMobile(mediaQuery.matches)
+        const handleChange = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+        mediaQuery.addEventListener("change", handleChange)
+        return () => mediaQuery.removeEventListener("change", handleChange)
+    }, [])
+
     return (
         <div className="max-w-4xl mx-auto px-4">
             <motion.div
                 className="relative border-l-2 border-yellow-500 pl-6"
-                initial={{ opacity: 0 }}
+                initial={{ opacity: isMobile ? 1 : 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                viewport={{ once: false, amount: 0.5 }}
+                viewport={{ once: isMobile || false, amount: 0.5 }}
             >
                 {timeline.map((item, index) => (
                 <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: isMobile ? 1 : 0, y: isMobile ? 0 : 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    viewport={{ once: false, amount: 0.5 }}
+                    transition={{ duration: isMobile ? 0 : 0.6, delay: isMobile ? 0 : index * 0.2 }}
+                    viewport={{ once: isMobile || false, amount: isMobile ? 0.2 : 0.5 }}
                     className="mb-10 relative"
                 >
                     {/* ponto */}
