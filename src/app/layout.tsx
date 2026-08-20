@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-// import Background from "@/components/Background";
-// import Footer from "@/components/Footer";
+import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -30,12 +29,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${spaceGrotesk.variable}`}>
       <body className="bg-bg font-sans">
-        {/* <Background /> */}
         <Header />
-        <main className="relative z-10">
+        <main>
           {children}
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
