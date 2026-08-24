@@ -5,12 +5,15 @@ import Card from "../CardSkills"
 import Timeline from "../Timeline"
 import { motion } from "framer-motion"
 import SectionTitle from "../SectionTitle"
+import { useDictionary } from "@/i18n/DictionaryProvider"
 
 export default function AboutSection() {
+   const { dict } = useDictionary()
+
    return(  
     <section id="about" className="py-20 bg-gradient-to-b from-[#171717] to-gray-900 text-white">
       <div className="container mx-auto px-4">
-        <SectionTitle highlight="mim">Sobre</SectionTitle>
+        <SectionTitle highlight={dict.about.titleHighlight}>{dict.about.titleLead}</SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto">
             <div className="ml-6">
                 <motion.h1 
@@ -20,7 +23,7 @@ export default function AboutSection() {
                     transition={{ duration: 0.7 }}
                     viewport={{ once: false, amount: 0.3 }}
                 >   
-                    Minha Jornada
+                    {dict.about.journey}
                 </motion.h1>
                 <Timeline />
             </div>
@@ -32,18 +35,18 @@ export default function AboutSection() {
                     transition={{ duration: 0.7 }}
                     viewport={{ once: false, amount: 0.3 }}
                 >   
-                    Minhas Habilidades
+                    {dict.about.skills}
                 </motion.h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 items-start md:items-stretch md:auto-rows-fr mx-auto gap-6">
                     {cards.map((card, index) => (
                         <motion.div
-                            key={index}
+                            key={card.id}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: false, amount: 0.5 }}
                         >
-                            <Card title={card.title} skills={card.skills} />
+                            <Card title={dict.cards[card.id]} skills={card.skills} />
                         </motion.div>
                     ))}
                 </div>

@@ -39,6 +39,24 @@ h1, h2, h3, h4, h5 {
   animation: shine 3s linear infinite;
 }
 
+.letter-wrap {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+}
+
+.letter-overlay {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.35s ease;
+  pointer-events: none;
+}
+
+.letter-wrap:hover .letter-overlay {
+  clip-path: inset(0 0 0 0);
+}
+
 .textarea-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
@@ -118,3 +136,16 @@ h1, h2, h3, h4, h5 {
     font-size: 20px;
 }
 
+/* Cursor piscante do efeito de digitação da Hero */
+@keyframes caretBlink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.typewriter-caret {
+  color: var(--color-yellow);
+  animation: caretBlink 1s step-end infinite;
+  margin-left: 0.05em;
+  font-weight: 400;
+}

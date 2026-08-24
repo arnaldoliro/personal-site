@@ -2,8 +2,10 @@
 import { motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import timeline from "@/data/TimelineItems"
+import { useDictionary } from "@/i18n/DictionaryProvider"
 
 export default function Timeline() {
+    const { dict } = useDictionary()
     const [isMobile, setIsMobile] = useState(false)
     const containerRef = useRef<HTMLDivElement>(null)
     const itemRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -70,8 +72,8 @@ export default function Timeline() {
                                 transition={{ duration: isMobile ? 0 : 0.2 }}
                             >
                                 <p className="text-sm text-gray-500">{item.year}</p>
-                                <h3 className="text-xl font-semibold">{item.title}</h3>
-                                <p className="text-gray-700">{item.description}</p>
+                                <h3 className="text-xl font-semibold">{dict.timeline[item.id].title}</h3>
+                                <p className="text-gray-700">{dict.timeline[item.id].description}</p>
                             </motion.div>
                         </div>
                     )
