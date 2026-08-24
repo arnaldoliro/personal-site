@@ -6,7 +6,7 @@ import { useDictionary } from "@/i18n/DictionaryProvider";
 
 const LABELS: Record<Locale, string> = { pt: "PT", en: "EN" };
 
-export default function LanguageSwitcher({ onNavigate }: { onNavigate?: () => void }) {
+export default function LanguageSwitcher() {
   const { locale } = useDictionary();
   const pathname = usePathname();
   const router = useRouter();
@@ -22,11 +22,10 @@ export default function LanguageSwitcher({ onNavigate }: { onNavigate?: () => vo
     const segments = pathname.split("/");
     segments[1] = next;
     router.push(segments.join("/") || `/${next}`);
-    onNavigate?.();
   };
 
   return (
-    <div className="flex items-center gap-1 text-sm font-medium">
+    <div className="flex items-center gap-1 text-xs md:text-sm font-medium shrink-0">
       {LOCALES.map((item, index) => (
         <span key={item} className="flex items-center gap-1">
           {index > 0 && <span className="text-gray-600">|</span>}

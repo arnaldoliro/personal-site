@@ -12,18 +12,19 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden w-full bg-[#171717]"
+      className="relative min-h-screen overflow-hidden w-full bg-[#171717] flex flex-col md:block"
     >
+      {/* No celular a cena entra depois do texto, em coluna; a partir do md ela
+          volta a ocupar o fundo inteiro com o texto sobreposto */}
       <HeroScene />
 
-      {/* Texto sobreposto por cima da cena 3D (moeda + átomos), não mais duas colunas */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
+      <div className="order-first pt-24 pb-4 md:pt-0 md:pb-0 md:absolute md:inset-0 z-10 md:pointer-events-none">
         <div
           className="
-            absolute inset-x-0 top-[8%] px-4 text-center
-            md:inset-x-auto md:left-[5%] lg:left-[7%] md:top-1/2 md:-translate-y-1/2 md:text-left md:px-0
+            px-4 text-center
+            md:absolute md:inset-x-auto md:left-[5%] lg:left-[7%] md:top-1/2 md:-translate-y-1/2 md:text-left md:px-0
             max-w-md sm:max-w-lg md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto md:mx-0
-            text-color-text pointer-events-auto
+            text-color-text md:pointer-events-auto
           "
         >
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">

@@ -53,23 +53,19 @@ export default function ProjectCard({
           </div>
         )}
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-4 transition-opacity duration-300">
-          <a
-            href={image}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 bg-custom-gradient rounded-xl shadow-lg hover:shadow-[#f97316] transition-all duration-500 cursor-pointer"
-          >
-            {dict.projects.viewProject}
-          </a>
+        {/* Camada de ação sobre a imagem.
+            No celular fica sempre visível, porque não existe hover para revelá-la.
+            No desktop aparece no hover — e quando invisível precisa de
+            pointer-events-none, senão continua capturando o clique/toque mesmo
+            transparente (era o que fazia tocar na imagem abrir o arquivo). */}
+        <div className="absolute inset-0 flex items-end justify-center pb-3 md:items-center md:pb-0 transition-opacity duration-300 pointer-events-none opacity-100 md:bg-black/60 md:opacity-0 md:group-hover:opacity-100">
           <a
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-transparent border-2 border-[#f97316] text-[#f97316] font-semibold rounded-xl hover:bg-[#f97316] hover:text-gray-900 transition-all duration-400 cursor-pointer"
+            className="p-3 bg-custom-gradient rounded-xl shadow-lg hover:shadow-[#f97316] transition-all duration-500 cursor-pointer pointer-events-auto md:pointer-events-none md:group-hover:pointer-events-auto"
           >
-            Github
+            {dict.projects.viewProject}
           </a>
         </div>
       </div>

@@ -13,10 +13,6 @@ const en: Dictionary = {
     description: "Full Stack Developer & Digital Experience Designer",
   },
 
-  header: {
-    toggleMenu: "Toggle menu",
-  },
-
   nav: {
     home: "Home",
     about: "About Me",

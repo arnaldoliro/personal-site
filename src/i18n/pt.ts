@@ -6,10 +6,6 @@ const pt = {
     description: "Desenvolvedor Full Stack & Designer de Experiências Digitais",
   },
 
-  header: {
-    toggleMenu: "Abrir menu",
-  },
-
   // Usado tanto pelo menu de navegação quanto pelo rodapé, para os rótulos
   // não divergirem entre os dois como acontecia antes
   nav: {

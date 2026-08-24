@@ -7,7 +7,7 @@ export default function NavbarLinks() {
   const { dict } = useDictionary()
 
   return (
-    <div className="hidden md:flex items-center space-x-6">
+    <div className="flex items-center">
       {navLinks.map((item) => (
         <a
           key={item.href}

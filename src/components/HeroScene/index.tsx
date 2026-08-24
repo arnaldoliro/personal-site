@@ -495,7 +495,9 @@ export default function HeroScene() {
   }, []);
 
   return (
-    <div className="absolute inset-0 z-0">
+    // No celular ocupa o espaço restante da coluna (texto fica acima);
+    // a partir do md volta a preencher o fundo da seção inteira
+    <div className="relative flex-1 min-h-[55vh] w-full md:absolute md:inset-0 md:min-h-0 z-0">
       {/* Área de arraste isolada (só perto da moeda), pra não capturar
           arrastos/scroll no resto da Hero (texto, fundo, touch no celular).
           Precisa de z-index acima do canvas, senão o canvas fica por cima e
