@@ -4,22 +4,23 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import NavbarLinks from "../NavbarLinks";
 import MobileMenu from "../MobileMenu"
-import { AnimatePresence, motion } from "framer-motion";
+import LanguageSwitcher from "../LanguageSwitcher"
+import { useDictionary } from "@/i18n/DictionaryProvider"
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 
 export default function Header() {
-  const [showHeader, setShowHeader] = useState(true);
+  const { dict } = useDictionary();
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(true)
+  const [isHidden, setIsHidden] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setShowHeader(currentScrollY > 10);
-    };
+  const { scrollY } = useScroll();
+  // Some gradualmente de opacidade conforme a página desce, em vez de sumir de repente
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsHidden(latest > 280);
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,23 +37,23 @@ export default function Header() {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [isOpen])
- 
+
   return (
-    <header className={`fixed top-0 left-0 w-full shadow-md bg-opacity-80 backdrop-blur-md bg-gray-900 z-50 font-sans ${showHeader ? "translate-y-0" : "-translate-y-full"} transition-transform duration-300`}>
+    <motion.header
+      style={{ opacity, pointerEvents: isHidden ? "none" : "auto" }}
+      className="fixed top-0 left-0 w-full z-50 font-sans"
+    >
       <div className="mx-auto px-4 py-4">
-        <nav className="flex justify-between items-center">
-          <a href="#" className="text-4xl font-bold gradient-text">
-            Arnaldo.dev
-          </a>
-          
-          <div className="hidden md:block">
+        <nav className="flex justify-end md:justify-center items-center">
+          <div className="hidden md:flex items-center gap-6">
             <NavbarLinks />
+            <LanguageSwitcher />
           </div>
-          
-          <button 
-            onClick={() => setIsOpen(!isOpen)} 
+
+          <button
+            onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-white"
-            aria-label="Toggle menu"
+            aria-label={dict.header.toggleMenu}
           >
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
@@ -68,8 +69,8 @@ export default function Header() {
           </button>
         </nav>
       </div>
-      
+
       {isMobile  && <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />}
-    </header>
+    </motion.header>
   );
 }

@@ -6,6 +6,7 @@ import ProjectCardProps from "@/types/ProjectCardProps";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SkillTag from "../SkillTag";
+import { useDictionary } from "@/i18n/DictionaryProvider";
 
 export default function ProjectCard({
   title,
@@ -14,6 +15,8 @@ export default function ProjectCard({
   skills,
   githubLink,
 }: ProjectCardProps) {
+  const { dict } = useDictionary();
+
   return (
     <motion.div
       className="bg-[#2b2b2b] pb-20 rounded-2xl shadow-lg hover:shadow-xl hover:shadow-[#f9741631] transition-shadow duration-300"
@@ -26,7 +29,7 @@ export default function ProjectCard({
         {image ? (
           <Image
             src={image}
-            alt={`Imagem do projeto ${title}`}
+            alt={dict.projects.imageAlt.replace("{title}", title)}
             className="w-full h-48 object-cover"
             width={500}
             height={300}
@@ -58,7 +61,7 @@ export default function ProjectCard({
             rel="noopener noreferrer"
             className="p-3 bg-custom-gradient rounded-xl shadow-lg hover:shadow-[#f97316] transition-all duration-500 cursor-pointer"
           >
-            Ver Projeto
+            {dict.projects.viewProject}
           </a>
           <a
             href={githubLink}

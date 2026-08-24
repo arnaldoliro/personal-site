@@ -1,6 +1,10 @@
+"use client";
+
 // components/MobileMenu.tsx
 import { motion, AnimatePresence } from "framer-motion"
 import { navLinks } from "@/data/navlinks"
+import { useDictionary } from "@/i18n/DictionaryProvider"
+import LanguageSwitcher from "../LanguageSwitcher"
 
 export default function MobileMenu({
   isOpen,
@@ -9,6 +13,8 @@ export default function MobileMenu({
   isOpen: boolean
   setIsOpen: (open: boolean) => void
 }) {
+  const { dict } = useDictionary()
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -27,11 +33,13 @@ export default function MobileMenu({
                 className="relative group text-lg font-medium hover:text-yellow-400 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                {item.label}
+                {dict.nav[item.key]}
                 <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-gradient-to-r from-orange-500 to-yellow-400 group-hover:w-full transition-all duration-300 ease-out"></span>
               </a>
             ))}
           </nav>
+
+          <LanguageSwitcher onNavigate={() => setIsOpen(false)} />
         </motion.aside>
       )}
     </AnimatePresence>
