@@ -129,11 +129,20 @@ h1, h2, h3, h4, h5 {
 .nav-link {
     position: relative;
     padding: 0.5rem 0;
-    margin: 0 1rem;
+    /* compacto no celular: 5 links + seletor de idioma precisam caber numa linha */
+    margin: 0 0.35rem;
     color: var(--color-text);
     text-decoration: none;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+    .nav-link {
+        margin: 0 1rem;
+        font-size: 20px;
+    }
 }
 
 /* Cursor piscante do efeito de digitação da Hero */

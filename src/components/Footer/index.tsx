@@ -11,11 +11,11 @@ export default function Footer() {
 
   return (
     <footer className="py-3 bg-gray-950 ">
-      <div className="container mx-auto text-center flex justify-between">
-        <p className="text-sm text-[#eee] font-semibold">
+      <div className="container mx-auto px-4 text-center flex flex-col-reverse md:flex-row items-center justify-between gap-2 md:gap-0">
+        <p className="text-xs md:text-sm text-[#eee] font-semibold">
           &copy; {new Date().getFullYear()} Arnaldo Liro. {dict.footer.rights}
         </p>
-        <div className="flex gap-4 text-sm">
+        <div className="flex gap-3 md:gap-4 text-xs md:text-sm">
           {FOOTER_LINKS.map((item) => (
             <a
               key={item.href}
